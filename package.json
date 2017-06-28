@@ -1,0 +1,25 @@
+{
+  "name": "react-native-expandable-section-list",
+  "version": "1.0.0",
+  "description": "react-native-expandable-section-list is a expandable list what is similar to QQ's list of Tencent",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cuiyueshuai/react-native-expandable-section-list.git"
+  },
+  "keywords": [
+    "expandable",
+    "list",
+    "react",
+    "qq"
+  ],
+  "author": "cuiyueshuai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cuiyueshuai/react-native-expandable-section-list/issues"
+  },
+  "homepage": "https://github.com/cuiyueshuai/react-native-expandable-section-list#readme"
+}
