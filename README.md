@@ -81,6 +81,7 @@ class Example extends React.PureComponent {
 | isOpen | false | `boolean` | 默认是否打开全部分组 |
 | openOptions | - | `array` | 可选单独打开某几个分组 |
 
+
 Licence
 -------------------------------------------
 

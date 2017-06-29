@@ -1,7 +1,8 @@
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
- * @flow
+ * Copyright cuiyueshuai
+ * @author cuiyueshuai<850705402@qq.com>
  */
 
 import React from 'react';
@@ -12,19 +13,49 @@ import {
   AppRegistry,
 } from 'react-native';
 
+import ExpandableList from 'react-native-expandable-section-list';
 import MockData from './constants/mockData';
 import DictStyle from './constants/dictStyle';
-import Subsection from './subsectionList/subsectionList';
-import MultiPartList from './subsectionList/multiPartList'
 
 class Example extends React.PureComponent {
-  _renderRow = (rowItem, rowId, sectionId) => <Text>{rowItem.title}</Text>;
 
-  _renderSection = (section, sectionId)  => <Text>{section}</Text>;
+  _renderRow = (rowItem, rowId, sectionId) => (
+    <TouchableOpacity key={rowId} onPress={() => {}}>
+      <View
+        style={{ alignItems: 'center', margin: 5, padding: 5,
+          borderWidth: 0.5, borderColor: DictStyle.colorSet.lineColor }}
+      >
+        <Text style={{ fontSize: DictStyle.fontSet.mSize, color: DictStyle.colorSet.normalFontColor }}>
+          {rowItem.title}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  );
+
+  _renderSection = (section, sectionId)  => {
+    return (
+      <View
+        style={{ marginVertical: 10, marginHorizontal: 15, height: 30, flexDirection: 'row',
+          justifyContent: 'space-between', alignItems: 'center', borderBottomWidth: 0.5,
+          borderBottomColor: DictStyle.colorSet.lineColor }}
+      >
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <Text style={{ fontSize: DictStyle.fontSet.mSize, color: DictStyle.colorSet.normalFontColor }}>
+            {section}
+          </Text>
+        </View>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <Text style={{ fontSize: DictStyle.fontSet.xSize, color: DictStyle.colorSet.weakFontColor }}>
+            {'更多 '}
+          </Text>
+        </View>
+      </View>
+    );
+  };
 
   render() {
     return (
-      <MultiPartList
+      <ExpandableList
         dataSource={MockData.workbenchData}
         headerKey="title"
         memberKey="member"
@@ -37,38 +68,3 @@ class Example extends React.PureComponent {
 }
 
 AppRegistry.registerComponent('example', () => Example);
-
-//
-// _renderRow = (rowItem, rowId, sectionId) => (
-//   <TouchableOpacity key={rowId} onPress={() => {}}>
-//     <View
-//       style={{ alignItems: 'center', margin: 5, padding: 5,
-//           borderWidth: 0.5, borderColor: DictStyle.colorSet.lineColor }}
-//     >
-//       <Text style={{ fontSize: DictStyle.fontSet.mSize, color: DictStyle.colorSet.normalFontColor }}>
-//         {rowItem.title}
-//       </Text>
-//     </View>
-//   </TouchableOpacity>
-// );
-//
-// _renderSection = (section, sectionId)  => {
-//   return (
-//     <View
-//       style={{ marginVertical: 10, marginHorizontal: 15, height: 30, flexDirection: 'row',
-//           justifyContent: 'space-between', alignItems: 'center', borderBottomWidth: 0.5,
-//           borderBottomColor: DictStyle.colorSet.lineColor }}
-//     >
-//       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-//         <Text style={{ fontSize: DictStyle.fontSet.mSize, color: DictStyle.colorSet.normalFontColor }}>
-//           {section}
-//         </Text>
-//       </View>
-//       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-//         <Text style={{ fontSize: DictStyle.fontSet.xSize, color: DictStyle.colorSet.weakFontColor }}>
-//           {'更多 '}
-//         </Text>
-//       </View>
-//     </View>
-//   );
-// };
