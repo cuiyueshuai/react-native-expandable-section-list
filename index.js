@@ -2,7 +2,8 @@
  * Created by dpcui on 27/05/2017.
  */
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   View,
   ListView,

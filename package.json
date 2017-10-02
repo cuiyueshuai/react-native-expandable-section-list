@@ -1,6 +1,6 @@
 {
   "name": "react-native-expandable-section-list",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "react-native-expandable-section-list is a expandable list what is similar to QQ's list of Tencent",
   "main": "index.js",
   "scripts": {
@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/cuiyueshuai/react-native-expandable-section-list/issues"
   },
-  "homepage": "https://github.com/cuiyueshuai/react-native-expandable-section-list#readme"
+  "homepage": "https://github.com/cuiyueshuai/react-native-expandable-section-list#readme",
+  "dependencies": {
+    "prop-types": "^15.6.0"
+  }
 }
