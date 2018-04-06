@@ -77,7 +77,7 @@ class Example extends React.PureComponent {
 | renderSectionHeaderX | - | `function` | 每一个列表分组组头的渲染回调 |
 | renderRow | - | `function` | 列表分组中每个成员行的渲染回调 |
 | renderSectionFooterX | - | `function` | 每一个列表分组组尾的渲染回调 |
-| headerOnPress | false | `boolean` | 点击打开关闭列表分组组头的回调 |
+| headerOnPress | - | `function` | 点击打开关闭列表分组组头的回调 |
 | isOpen | false | `boolean` | 默认是否打开全部分组 |
 | openOptions | - | `array` | 可选单独打开某几个分组 |
 
