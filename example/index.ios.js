@@ -19,18 +19,24 @@ import DictStyle from './constants/dictStyle';
 
 class Example extends React.PureComponent {
 
-  _renderRow = (rowItem, rowId, sectionId) => (
-    <TouchableOpacity key={rowId} onPress={() => {}}>
-      <View
-        style={{ alignItems: 'center', margin: 5, padding: 5,
-          borderWidth: 0.5, borderColor: DictStyle.colorSet.lineColor }}
-      >
-        <Text style={{ fontSize: DictStyle.fontSet.mSize, color: DictStyle.colorSet.normalFontColor }}>
-          {rowItem.title}
-        </Text>
-      </View>
-    </TouchableOpacity>
-  );
+  _renderRow = (rowItem, rowId, sectionId) => {
+    console.log(rowItem, rowId, sectionId);
+    return (
+      <TouchableOpacity key={ rowId } onPress={() => {
+      }}>
+        <View
+          style={{
+            alignItems: 'center', margin: 5, padding: 5,
+            borderWidth: 0.5, borderColor: DictStyle.colorSet.lineColor
+          }}
+        >
+          <Text style={{fontSize: DictStyle.fontSet.mSize, color: DictStyle.colorSet.normalFontColor}}>
+            {rowItem.title}
+          </Text>
+        </View>
+      </TouchableOpacity>
+    )
+  };
 
   _renderSection = (section, sectionId, state)  => {
     console.log(section, sectionId, state);
