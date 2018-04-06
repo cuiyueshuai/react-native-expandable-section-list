@@ -56,7 +56,7 @@ class ExpandableList extends Component {
     });
 
     if (this.props.headerOnPress) {
-      this.props.headerOnPress(i, this.state.memberOpened.get(i) || false);
+      this.props.headerOnPress(i, !(!!this.state.memberOpened.get(i)));
     }
 
     LayoutAnimation.easeInEaseOut();
@@ -65,6 +65,7 @@ class ExpandableList extends Component {
   _renderRow = (rowData, sectionId, rowId) => { // eslint-disable-line
     const { renderRow, renderSectionHeaderX, renderSectionFooterX, headerKey, memberKey } = this.props;
     let memberArr = rowData[memberKey];
+
     if (!this.state.memberOpened.get(rowId) || !memberArr) {
       memberArr = [];
     }
@@ -72,7 +73,8 @@ class ExpandableList extends Component {
     return (
       <View>
         <TouchableOpacity onPress={() => this._onPress(rowId)}>
-          { renderSectionHeaderX ? renderSectionHeaderX(rowData[headerKey], rowId) : null}
+          { renderSectionHeaderX ? renderSectionHeaderX(rowData[headerKey], rowId,
+              !!this.state.memberOpened.get(rowId)) : null}
         </TouchableOpacity>
         <ScrollView scrollEnabled={false}>
           {

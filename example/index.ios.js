@@ -32,7 +32,8 @@ class Example extends React.PureComponent {
     </TouchableOpacity>
   );
 
-  _renderSection = (section, sectionId)  => {
+  _renderSection = (section, sectionId, state)  => {
+    console.log(section, sectionId, state);
     return (
       <View
         style={{ marginVertical: 10, marginHorizontal: 15, height: 30, flexDirection: 'row',
@@ -60,6 +61,7 @@ class Example extends React.PureComponent {
         headerKey="title"
         memberKey="member"
         renderRow={this._renderRow}
+        headerOnPress={(i, state) => console.log(i, state)}
         renderSectionHeaderX={this._renderSection}
         openOptions={[1,2,]}
       />
