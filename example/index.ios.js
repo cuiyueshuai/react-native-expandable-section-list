@@ -11,6 +11,7 @@ import {
   Text,
   TouchableOpacity,
   AppRegistry,
+  Button,
 } from 'react-native';
 
 import ExpandableList from 'react-native-expandable-section-list';
@@ -20,7 +21,6 @@ import DictStyle from './constants/dictStyle';
 class Example extends React.PureComponent {
 
   _renderRow = (rowItem, rowId, sectionId) => {
-    console.log(rowItem, rowId, sectionId);
     return (
       <TouchableOpacity key={ rowId } onPress={() => {
       }}>
@@ -39,7 +39,6 @@ class Example extends React.PureComponent {
   };
 
   _renderSection = (section, sectionId, state)  => {
-    console.log(section, sectionId, state);
     return (
       <View
         style={{ marginVertical: 10, marginHorizontal: 15, height: 30, flexDirection: 'row',
@@ -60,17 +59,31 @@ class Example extends React.PureComponent {
     );
   };
 
+  _btnPress = () => {
+    console.log(this.ExpandableList);
+    this.ExpandableList.setSectionState(0, true);
+  };
+
   render() {
     return (
-      <ExpandableList
-        dataSource={MockData.workbenchData}
-        headerKey="title"
-        memberKey="member"
-        renderRow={this._renderRow}
-        headerOnPress={(i, state) => console.log(i, state)}
-        renderSectionHeaderX={this._renderSection}
-        openOptions={[1,2,]}
-      />
+      <View style={{flex: 1}}>
+        <ExpandableList
+          ref={instance => this.ExpandableList = instance}
+          dataSource={MockData.workbenchData}
+          headerKey="title"
+          memberKey="member"
+          renderRow={this._renderRow}
+          headerOnPress={(i, state) => console.log(i, state)}
+          renderSectionHeaderX={this._renderSection}
+          openOptions={[1, 2,]}
+        />
+        <Button
+          style={{position: 'absolute', bottom: 0, left: 0, width: '100%', height: 50, backgroundColor: 'blue'}}
+          onPress={this._btnPress}
+          title="Scroll"
+          color="red"
+        />
+      </View>
     );
   }
 }

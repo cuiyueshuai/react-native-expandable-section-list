@@ -81,6 +81,17 @@ class Example extends React.PureComponent {
 | isOpen | false | `boolean` | 默认是否打开全部分组 |
 | openOptions | - | `array` | 可选单独打开某几个分组 |
 
+方法
+-------------------------------------------
+
+`setSectionState`: 滑动到指定分组
+
+```
+scrollToSection(index, state)
+```
+
+* 'index' (number) - 设置分组状态的下标
+* 'section' (bool) - 分组状态设置，`true`为open，`false`为close
 
 Licence
 -------------------------------------------

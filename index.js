@@ -17,7 +17,8 @@ class ExpandableList extends Component {
   constructor(props) {
     super(props);
     this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-    let map = new Map();
+    this.listView;
+    const map = new Map();
     if (props.dataSource && props.isOpen) {
       props.dataSource.map((item, i) => map.set(i.toString(), true))
     }
@@ -28,6 +29,17 @@ class ExpandableList extends Component {
     this.state = {
       memberOpened: map
     }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const map = new Map();
+    if (nextProps.dataSource && nextProps.isOpen) {
+      nextProps.dataSource.map((item, i) => map.set(i.toString(), true));
+    }
+    if (nextProps.openOptions) {
+      nextProps.openOptions.map((item) => map.set(item.toString(), true));
+    }
+    this.setState({memberOpened: map});
   }
 
   static propTypes = {
@@ -46,6 +58,15 @@ class ExpandableList extends Component {
     headerKey: 'header',
     memberKey: 'member',
     isOpen: false,
+  };
+
+  setSectionState = (index, state) => {
+    this.setState((state) => {
+      const memberOpened = new Map(state.memberOpened);
+      memberOpened.set(index.toString(), state); // toggle
+      return {memberOpened};
+    });
+    LayoutAnimation.easeInEaseOut();
   };
 
   _onPress = (i) => {
@@ -81,7 +102,7 @@ class ExpandableList extends Component {
             memberArr.map((rowItem, index) => {
               return (
                 <View key={index}>
-                  {renderRow ? renderRow(rowItem, index, sectionId) : null}
+                  {renderRow ? renderRow(rowItem, index, rowId) : null}
                 </View>
               );
             })
@@ -97,6 +118,7 @@ class ExpandableList extends Component {
     return (
       <ListView
         {...this.props}
+        ref={instance => this.listView = instance}
         dataSource={this.ds.cloneWithRows(dataSource || [])}
         renderRow={this._renderRow}
         enableEmptySections={true}
