@@ -87,7 +87,7 @@ class Example extends React.PureComponent {
 `setSectionState`: 滑动到指定分组
 
 ```
-scrollToSection(index, state)
+setSectionState(index, state)
 ```
 
 * 'index' (number) - 设置分组状态的下标
