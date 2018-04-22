@@ -1,5 +1,7 @@
 react-native-expandable-section-list
 ================================================
+
+[https://www.npmjs.com/package/react-native-expandable-section-list](https://www.npmjs.com/package/react-native-expandable-section-list)
   
 react-native-expandable-section-list 是一个纯js编写的可伸缩列表，类似于QQ列表形式，作为ListView的简单扩展组件，能同时运行在android和iOS双平台下,
 
