@@ -61,7 +61,7 @@ class Example extends React.PureComponent {
 
   _btnPress = () => {
     console.log(this.ExpandableList);
-    this.ExpandableList.setSectionState(0, true);
+    this.ExpandableList.setSectionState(0, false);
   };
 
   render() {

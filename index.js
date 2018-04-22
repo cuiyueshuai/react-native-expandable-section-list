@@ -61,8 +61,8 @@ class ExpandableList extends Component {
   };
 
   setSectionState = (index, state) => {
-    this.setState((state) => {
-      const memberOpened = new Map(state.memberOpened);
+    this.setState((s) => {
+      const memberOpened = new Map(s.memberOpened);
       memberOpened.set(index.toString(), state); // toggle
       return {memberOpened};
     });

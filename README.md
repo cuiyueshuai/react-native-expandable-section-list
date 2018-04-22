@@ -84,14 +84,14 @@ class Example extends React.PureComponent {
 方法
 -------------------------------------------
 
-`setSectionState`: 滑动到指定分组
+`setSectionState`: 改变分组状态
 
 ```
-scrollToSection(index, state)
+setSectionState(index, state)
 ```
 
 * 'index' (number) - 设置分组状态的下标
-* 'section' (bool) - 分组状态设置，`true`为open，`false`为close
+* 'state' (bool) - 分组状态设置，`true`为open，`false`为close
 
 Licence
 -------------------------------------------
